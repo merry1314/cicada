@@ -4,7 +4,7 @@ const zhCN: {
   [key in Key]: string;
 } = {
   cicada: '知了',
-  cicada_description: '一个子托管的多用户音乐服务',
+  cicada_description: '一个自托管的多用户音乐服务',
   incompatible_tips: '你的浏览器无法兼容知了, 因为缺少以下功能',
   setting: '设置',
   confirm: '确认',
