@@ -108,7 +108,9 @@ export async function request<Data = void>({
         }),
       sleep(requestMinimalDuration),
     ]),
-    timeoutFn(timeout),
+    timeoutFn(timeout).catch(() =>
+      Promise.reject(new Error(t('timeout_while_fetching_data'))),
+    ),
   ]);
   const { status, statusText } = response;
   if (status !== 200) {

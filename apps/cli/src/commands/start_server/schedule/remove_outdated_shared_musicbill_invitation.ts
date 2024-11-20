@@ -17,4 +17,8 @@ async function removeOutdatedSharedMusicbillInvitation() {
   );
 }
 
-export default withTimeout(removeOutdatedSharedMusicbillInvitation, 60 * 1000);
+export default withTimeout(
+  removeOutdatedSharedMusicbillInvitation,
+  60 * 1000,
+  (ms) => new Error(`Timeout of ${ms}ms`),
+);

@@ -217,6 +217,8 @@ const zhCN: {
   stop_timer_exist_warning: '已存在一个定时器',
   stop_timer_is_up: '停止定时器时间到',
   remove_stop_timer_question: '确定移除停止定时器?',
+  timeout_while_fetching_data: '获取数据超时',
+  timeout: '超时 %s1 毫秒',
 };
 
 export default zhCN;

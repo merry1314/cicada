@@ -129,7 +129,6 @@ function ImageCutContent({
       <Content style={contentStyle}>
         {url ? (
           <ImgBox>
-            {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <img src={url} ref={imageRef} />
           </ImgBox>
         ) : null}

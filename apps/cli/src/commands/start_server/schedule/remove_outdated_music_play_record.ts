@@ -58,4 +58,8 @@ async function removeOutdatedMusicPlayRecord() {
   }
 }
 
-export default withTimeout(removeOutdatedMusicPlayRecord, 60 * 1000);
+export default withTimeout(
+  removeOutdatedMusicPlayRecord,
+  60 * 1000,
+  (ms) => new Error(`Timeout of ${ms}ms`),
+);

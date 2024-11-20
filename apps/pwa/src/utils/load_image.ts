@@ -1,4 +1,5 @@
 import timeoutFn from '#/utils/timeout';
+import { t } from '@/i18n';
 
 function loadImage(
   url: string,
@@ -20,7 +21,13 @@ function loadImage(
       imgNode.onerror = () =>
         reject(new Error(`Failed to load image "${url}"`));
     }),
-    timeoutFn(timeout, timeoutErrorGenerator),
+    timeoutFn(timeout).catch(() =>
+      Promise.reject(
+        timeoutErrorGenerator
+          ? timeoutErrorGenerator(timeout)
+          : new Error(t('timeout', timeout.toString())),
+      ),
+    ),
   ]);
 }
 
