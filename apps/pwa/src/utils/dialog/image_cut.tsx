@@ -89,6 +89,13 @@ function ImageCutContent({
         canvas.height = size;
         const context = canvas.getContext('2d')!;
 
+        /**
+         * fill canvas with white backgroud
+         * @author mebtte<panhongyi.phy@alibaba-inc.com>
+         */
+        context.fillStyle = '#fff';
+        context.fillRect(0, 0, size, size);
+
         const imgNode = await loadImage(url);
         context.drawImage(imgNode, x, y, width, width, 0, 0, size, size);
         payload = await new Promise<Blob>((resolve, reject) =>
