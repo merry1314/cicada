@@ -45,4 +45,8 @@ async function removeOutdatedDB() {
   }
 }
 
-export default withTimeout(removeOutdatedDB, 60 * 1000);
+export default withTimeout(
+  removeOutdatedDB,
+  60 * 1000,
+  (ms) => new Error(`Timeout of ${ms}ms`),
+);

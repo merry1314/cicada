@@ -229,4 +229,6 @@ export default {
   stop_timer_exist_warning: 'stop-timer is existing',
   stop_timer_is_up: 'stop-timer is up',
   remove_stop_timer_question: 'are you sure to remove stop-timer',
+  timeout_while_fetching_data: 'timeout while fetching data',
+  timeout: 'timeout of %s1 milliseconds',
 };

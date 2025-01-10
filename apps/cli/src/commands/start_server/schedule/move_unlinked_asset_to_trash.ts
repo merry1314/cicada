@@ -170,4 +170,8 @@ async function moveUnlinkedAssetToTash() {
   }
 }
 
-export default withTimeout(moveUnlinkedAssetToTash, 60 * 1000);
+export default withTimeout(
+  moveUnlinkedAssetToTash,
+  60 * 1000,
+  (ms) => new Error(`Timeout of ${ms}ms`),
+);

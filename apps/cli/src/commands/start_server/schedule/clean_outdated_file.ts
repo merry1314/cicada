@@ -44,4 +44,8 @@ async function cleanOutdatedFile() {
   }
 }
 
-export default withTimeout(cleanOutdatedFile, 60 * 1000);
+export default withTimeout(
+  cleanOutdatedFile,
+  60 * 1000,
+  (ms) => new Error(`Timeout of ${ms}ms`),
+);

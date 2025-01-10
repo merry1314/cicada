@@ -4,7 +4,7 @@ const zhCN: {
   [key in Key]: string;
 } = {
   cicada: '知了',
-  cicada_description: '一个子托管的多用户音乐服务',
+  cicada_description: '一个自托管的多用户音乐服务',
   incompatible_tips: '你的浏览器无法兼容知了, 因为缺少以下功能',
   setting: '设置',
   confirm: '确认',
@@ -217,6 +217,8 @@ const zhCN: {
   stop_timer_exist_warning: '已存在一个定时器',
   stop_timer_is_up: '停止定时器时间到',
   remove_stop_timer_question: '确定移除停止定时器?',
+  timeout_while_fetching_data: '获取数据超时',
+  timeout: '超时 %s1 毫秒',
 };
 
 export default zhCN;

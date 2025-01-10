@@ -50,4 +50,8 @@ async function removeNoMusicSinger() {
   }
 }
 
-export default withTimeout(removeNoMusicSinger, 1000 * 60);
+export default withTimeout(
+  removeNoMusicSinger,
+  1000 * 60,
+  (ms) => new Error(`Timeout of ${ms}ms`),
+);
