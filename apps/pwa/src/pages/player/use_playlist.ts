@@ -3,13 +3,29 @@ import notice from '@/utils/notice';
 import getMusic from '@/server/api/get_music';
 import logger from '@/utils/logger';
 import { t } from '@/i18n';
-import { MusicWithSingerAliases } from './constants';
+import { PlaylistMusic } from './constants';
 import eventemitter, { EventType } from './eventemitter';
-
-type PlaylistMusic = MusicWithSingerAliases & { index: number };
+import storage, { Key } from './storage';
+import {
+  getSelectedServer,
+  getSelectedUser,
+  useServer,
+} from '@/global_states/server';
 
 export default () => {
   const [playlist, setPlaylist] = useState<PlaylistMusic[]>([]);
+
+  useEffect(
+    () =>
+      playlist && playlist.length > 0
+        ? void storage.setItem(Key.PLAYLIST, {
+            userId: getSelectedUser(getSelectedServer(useServer.getState())!)!
+              .id,
+            musicList: playlist,
+          })
+        : undefined,
+    [playlist],
+  );
 
   useEffect(() => {
     const unlistenActionPlayMusic = eventemitter.listen(
