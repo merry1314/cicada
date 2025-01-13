@@ -6,11 +6,6 @@ import { t } from '@/i18n';
 import { PlaylistMusic } from './constants';
 import eventemitter, { EventType } from './eventemitter';
 import storage, { Key } from './storage';
-import {
-  getSelectedServer,
-  getSelectedUser,
-  useServer,
-} from '@/global_states/server';
 
 export default () => {
   const [playlist, setPlaylist] = useState<PlaylistMusic[]>([]);
@@ -18,11 +13,7 @@ export default () => {
   useEffect(
     () =>
       playlist && playlist.length > 0
-        ? void storage.setItem(Key.PLAYLIST, {
-            userId: getSelectedUser(getSelectedServer(useServer.getState())!)!
-              .id,
-            musicList: playlist,
-          })
+        ? void storage.setItem(Key.PLAYLIST, playlist)
         : undefined,
     [playlist],
   );

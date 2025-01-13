@@ -8,10 +8,7 @@ export enum Key {
 const storage = new Storage<
   Key,
   {
-    [Key.PLAYLIST]: {
-      userId: string;
-      musicList: MusicWithSingerAliases[];
-    };
+    [Key.PLAYLIST]: MusicWithSingerAliases[];
   }
 >('player');
 
