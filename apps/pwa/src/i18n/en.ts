@@ -195,7 +195,7 @@ export default {
   join_at: 'join at %s1',
   music_list_are_added_to_playlist: '%s1 musics are added to playlist',
   music_list_are_added_to_playlist_unsuccessfully:
-    'playlist has included these music already',
+    'playlist has included these musics already',
   next_music_info: 'next music is %s1',
   failed_to_get_musicbill_list: 'failed to get musicbill list',
   save_time_of_singer_modify_record_instruction:
@@ -231,4 +231,5 @@ export default {
   remove_stop_timer_question: 'are you sure to remove stop-timer',
   timeout_while_fetching_data: 'timeout while fetching data',
   timeout: 'timeout of %s1 milliseconds',
+  question_restore_playlist: 'do you want to restore last playlist ?',
 };

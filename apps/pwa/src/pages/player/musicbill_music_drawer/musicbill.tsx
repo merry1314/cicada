@@ -82,7 +82,7 @@ function Musicbill({
             PlayerEventType.ADD_MUSIC_TO_MUSICBILL,
             {
               musicbill,
-              music: music!,
+              music,
             },
           );
         }

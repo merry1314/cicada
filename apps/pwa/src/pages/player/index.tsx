@@ -84,10 +84,10 @@ function Wrapper() {
 
   useKeyboard({ paused: audioPaused, queueMusic, musicbillList });
   useMediaSession(queueMusic);
-
-  useEffect(() => {
-    e.emit(EventType.CURRENT_MUSIC_CHANGE, { queueMusic });
-  }, [queueMusic]);
+  useEffect(
+    () => e.emit(EventType.CURRENT_MUSIC_CHANGE, { queueMusic }),
+    [queueMusic],
+  );
 
   const contextValue = useMemo(
     () => ({

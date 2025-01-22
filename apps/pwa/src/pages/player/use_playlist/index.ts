@@ -3,13 +3,13 @@ import notice from '@/utils/notice';
 import getMusic from '@/server/api/get_music';
 import logger from '@/utils/logger';
 import { t } from '@/i18n';
-import { MusicWithSingerAliases } from './constants';
-import eventemitter, { EventType } from './eventemitter';
-
-type PlaylistMusic = MusicWithSingerAliases & { index: number };
+import { PlaylistMusic } from '../constants';
+import eventemitter, { EventType } from '../eventemitter';
+import usePlaylistRestore from './use_playlist_restore';
 
 export default () => {
   const [playlist, setPlaylist] = useState<PlaylistMusic[]>([]);
+  usePlaylistRestore(playlist);
 
   useEffect(() => {
     const unlistenActionPlayMusic = eventemitter.listen(
@@ -109,7 +109,15 @@ export default () => {
     );
     const unlistenMusicDeleted = eventemitter.listen(
       EventType.MUSIC_DELETED,
-      (data) => setPlaylist((pl) => pl.filter((m) => m.id !== data.id)),
+      (data) =>
+        setPlaylist((pl) =>
+          pl
+            .filter((m) => m.id !== data.id)
+            .map((music, index, { length }) => ({
+              ...music,
+              index: length - index,
+            })),
+        ),
     );
     return () => {
       unlistenActionPlayMusic();

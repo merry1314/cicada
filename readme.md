@@ -111,10 +111,10 @@ cicada import --data /path_to/cicada_data <music>
 
 ```sh
 # import directory
-docker run -it --rm -v <data>:/data mebtte/cicada:v2 -v <music_directory>:/source import --data /path_to/cicada_data --recursive /source
+docker run -it --rm -v <data>:/data -v <music_directory>:/source mebtte/cicada:v2 import --data /path_to/cicada_data --recursive /source
 
 # import file
-docker run -it --rm -v <data>:/data mebtte/cicada:v2 -v <music_directory>:/source import --data /path_to/cicada_data --recursive /source/<music>
+docker run -it --rm -v <data>:/data -v <music_directory>:/source mebtte/cicada:v2 import --data /path_to/cicada_data --recursive /source/<music>
 ```
 
 ## Data fixing

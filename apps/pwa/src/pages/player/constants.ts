@@ -27,6 +27,8 @@ export interface MusicWithSingerAliases extends Omit<Music, 'singers'> {
   singers: SingerWithAliases[];
 }
 
+export type PlaylistMusic = MusicWithSingerAliases & { index: number };
+
 export interface QueueMusic extends MusicWithSingerAliases {
   index: number;
   pid: string;

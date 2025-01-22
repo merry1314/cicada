@@ -30,5 +30,6 @@ rules:
   "@typescript-eslint/no-floating-promises": off
   "@typescript-eslint/array-type": off
   "@typescript-eslint/prefer-nullish-coalescing": off
+  "@typescript-eslint/no-invalid-void-type": "off"
 
   "react/react-in-jsx-scope": off

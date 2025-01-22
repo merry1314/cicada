@@ -219,6 +219,7 @@ const zhCN: {
   remove_stop_timer_question: '确定移除停止定时器?',
   timeout_while_fetching_data: '获取数据超时',
   timeout: '超时 %s1 毫秒',
+  question_restore_playlist: '是否恢复上一次的播放列表',
 };
 
 export default zhCN;

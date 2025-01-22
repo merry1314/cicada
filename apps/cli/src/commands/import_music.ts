@@ -93,8 +93,8 @@ async function importFile(
    * @author mebtte<i@mebtte.com>
    */
   const ft = await fileType.fromFile(filepath);
-  const { acceptTypes } = ASSET_TYPE_MAP[AssetType.MUSIC];
-  if (ft && acceptTypes.includes(ft.mime)) {
+  const { acceptType } = ASSET_TYPE_MAP[AssetType.MUSIC];
+  if (ft && Object.values(acceptType).flat().includes(ft.mime)) {
     let musicTag: Metadata;
     try {
       musicTag = await getMusicFileMetadata(filepath);
